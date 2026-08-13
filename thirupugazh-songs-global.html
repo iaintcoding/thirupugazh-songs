@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>திருப்புகழ் | பாடல்கள் மற்றும் பொருள்</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-bg:#F3F4E9;
+    --color-bg-card:#FFFDF6;
+    --color-maroon:#8C2F39;
+    --color-maroon-dark:#6B222A;
+    --color-gold:#B8790F;
+    --color-gold-soft:#E7C066;
+    --color-teal:#0E6B5C;
+    --color-teal-dark:#0A4A40;
+    --color-peacock-blue:#155E75;
+    --color-peacock-indigo:#3B3F8C;
+    --color-peacock-emerald:#1F7A5C;
+    --color-text:#20261F;
+    --color-text-soft:#4B5548;
+    --color-border:#D8DEC4;
+    --radius:16px;
+    --font-scale:1;
+    --shadow: 0 2px 10px rgba(20,60,50,0.08);
+  }
+  *{box-sizing:border-box;}
+  html{font-size:calc(16px * var(--font-scale)); scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--color-bg);
+    /* Subtle peacock-feather motif: soft "eye" glows in peacock blue, emerald
+       and indigo with a whisper of gold, echoing Lord Muruga's vahana (vehicle),
+       the peacock (mayil). Kept faint so it never competes with reading text. */
+    background-image:
+      radial-gradient(circle at 12% 6%, rgba(21,94,117,0.10) 0%, rgba(21,94,117,0.05) 22%, transparent 46%),
+      radial-gradient(circle at 12% 6%, rgba(184,121,15,0.10) 0%, transparent 12%),
+      radial-gradient(circle at 88% 14%, rgba(59,63,140,0.08) 0%, rgba(59,63,140,0.04) 24%, transparent 48%),
+      radial-gradient(circle at 90% 92%, rgba(31,122,92,0.10) 0%, rgba(31,122,92,0.05) 22%, transparent 46%),
+      radial-gradient(circle at 90% 92%, rgba(184,121,15,0.09) 0%, transparent 12%),
+      radial-gradient(circle at 8% 90%, rgba(14,107,92,0.07) 0%, transparent 40%),
+      radial-gradient(circle at 50% 45%, rgba(21,94,117,0.03) 0%, transparent 60%);
+    background-attachment:fixed;
+    color:var(--color-text);
+    font-family:'Noto Sans Tamil','Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    min-height:100vh;
+  }
+  h1,h2,h3,.display{
+    font-family:'Noto Serif Tamil','Fraunces',Georgia,serif;
+    font-weight:600;
+    color:var(--color-maroon-dark);
+    margin:0 0 .4em 0;
+  }
+  a{color:var(--color-teal);}
+  /* Small bracketed English translation shown after Tamil UI text, for
+     readers who are not fluent in Tamil. */
+  .en-tag{ font-family:'Inter',system-ui,-apple-system,sans-serif; font-weight:500; font-style:italic; color:var(--color-text-soft); font-size:.85em; }
+  button{font-family:inherit;}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+  /* Decorative kolam-style stripe, the site's signature motif */
+  .kolam-border{
+    height:8px;
+    width:100%;
+    background:repeating-linear-gradient(90deg,
+      var(--color-peacock-blue) 0 22px,
+      var(--color-gold) 22px 30px,
+      var(--color-peacock-emerald) 30px 38px,
+      var(--color-gold-soft) 38px 46px,
+      var(--color-peacock-indigo) 46px 54px,
+      var(--color-gold) 54px 62px);
+  }
+
+  header.site-header{
+    position:sticky; top:0; z-index:30;
+    background:var(--color-bg-card);
+    border-bottom:1px solid var(--color-border);
+    box-shadow:var(--shadow);
+  }
+  .header-inner{
+    max-width:960px; margin:0 auto;
+    padding:.9rem 1rem;
+    display:flex; flex-wrap:wrap; align-items:center; gap:.75rem;
+  }
+  .brand{ display:flex; align-items:center; gap:.6rem; cursor:pointer; flex:1 1 220px; }
+  .brand-mark{
+    width:2.6rem; height:2.6rem; border-radius:50%;
+    background:linear-gradient(160deg, var(--color-maroon), var(--color-maroon-dark));
+    display:flex; align-items:center; justify-content:center;
+    color:var(--color-gold-soft); flex-shrink:0;
+    box-shadow: inset 0 0 0 2px rgba(231,192,102,0.5);
+  }
+  .brand-mark svg{width:1.5rem;height:1.5rem;}
+  .brand-text h1{font-size:1.3rem; line-height:1.1;}
+  .brand-text p{margin:0; font-size:.85rem; color:var(--color-text-soft);}
+
+  .header-controls{ display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+  .fontctl{ display:flex; align-items:center; border:1.5px solid var(--color-border); border-radius:999px; overflow:hidden; }
+  .fontctl button{
+    border:none; background:var(--color-bg-card); color:var(--color-maroon-dark);
+    padding:.5rem .75rem; cursor:pointer; font-weight:700; font-size:.95rem;
+  }
+  .fontctl button:hover, .fontctl button:focus-visible{background:var(--color-gold-soft); outline:none;}
+  .fontctl button.active{background:var(--color-maroon); color:#fff;}
+
+  .btn{
+    border:none; border-radius:999px; padding:.6rem 1.1rem; font-weight:600;
+    cursor:pointer; font-size:.95rem; display:inline-flex; align-items:center; gap:.4rem;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn:focus-visible{outline:3px solid var(--color-gold-soft); outline-offset:2px;}
+  .btn-primary{background:var(--color-maroon); color:#fff;}
+  .btn-primary:hover{background:var(--color-maroon-dark);}
+  .btn-gold{background:var(--color-gold); color:#fff;}
+  .btn-gold:hover{background:#9c690c;}
+  .btn-teal{background:var(--color-teal); color:#fff;}
+  .btn-teal:hover{background:var(--color-teal-dark);}
+  .btn-ghost{background:transparent; color:var(--color-maroon-dark); border:1.5px solid var(--color-border);}
+  .btn-ghost:hover{background:#F1E4C4;}
+  .btn-danger{background:#A7333F; color:#fff;}
+  .btn-danger:hover{background:#832129;}
+  .btn-sm{padding:.4rem .8rem; font-size:.85rem;}
+  .btn[disabled]{opacity:.5; cursor:not-allowed;}
+
+  main{max-width:960px; margin:0 auto; padding:1.25rem 1rem 4rem;}
+  .hidden{display:none !important;}
+
+  .search-row{ display:flex; gap:.6rem; margin-bottom:1.1rem; flex-wrap:wrap; }
+  .search-row input[type="search"]{
+    flex:1 1 220px; padding:.75rem 1rem; border-radius:999px;
+    border:1.5px solid var(--color-border); font-size:1rem; background:var(--color-bg-card); color:var(--color-text);
+  }
+  .search-row input:focus-visible{outline:3px solid var(--color-gold-soft); border-color:var(--color-gold);}
+
+  .intro-note{
+    background:var(--color-bg-card); border:1px solid var(--color-border); border-left:6px solid var(--color-teal);
+    border-radius:var(--radius); padding:1rem 1.2rem; margin-bottom:1.3rem; color:var(--color-text-soft); font-size:.98rem;
+  }
+
+  .song-grid{ display:grid; grid-template-columns:1fr; gap:1rem; }
+  @media(min-width:640px){ .song-grid{grid-template-columns:1fr 1fr;} }
+
+  .song-card{
+    background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:var(--radius);
+    padding:1.1rem 1.2rem; box-shadow:var(--shadow); cursor:pointer; text-align:left; width:100%;
+    display:flex; flex-direction:column; gap:.35rem;
+  }
+  .song-card:hover, .song-card:focus-visible{ border-color:var(--color-gold); transform:translateY(-2px); outline:none; }
+  .song-card .tamil-title{ font-family:'Noto Serif Tamil',serif; font-size:1.25rem; color:var(--color-maroon-dark); font-weight:600;}
+  .song-card .en-title{ font-size:.92rem; color:var(--color-text-soft); font-style:italic; }
+  .song-card .place{ font-size:.85rem; color:var(--color-teal); font-weight:600;}
+  .song-card .excerpt{ font-size:.92rem; color:var(--color-text-soft); margin-top:.3rem;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+  .empty-state{
+    text-align:center; padding:3rem 1.5rem; background:var(--color-bg-card);
+    border:1px dashed var(--color-border); border-radius:var(--radius); color:var(--color-text-soft);
+  }
+  .empty-state svg{width:3rem;height:3rem;color:var(--color-gold); margin-bottom:.5rem;}
+
+  /* Song detail */
+  .detail-card{
+    background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:var(--radius);
+    padding:1.4rem; box-shadow:var(--shadow);
+  }
+  .detail-toolbar{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.6rem; margin-bottom:1rem; }
+  .detail-header .tamil-title{ font-size:1.9rem; }
+  .detail-header .en-title{ color:var(--color-text-soft); font-style:italic; font-size:1.05rem; margin-bottom:.2rem; }
+  .detail-header .place{ display:inline-block; margin-top:.3rem; background:#EFE2C4; color:var(--color-teal-dark); font-weight:600;
+    padding:.2rem .7rem; border-radius:999px; font-size:.85rem; }
+  .section-label{ text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; font-weight:700; color:var(--color-gold); margin:1.4rem 0 .5rem; }
+  .lyrics-block{ font-family:'Noto Serif Tamil',serif; font-size:1.35rem; line-height:2; white-space:pre-wrap; color:var(--color-text); }
+  .translit-block, .meaning-block{ font-size:1.08rem; white-space:pre-wrap; color:var(--color-text); }
+  hr.divider{ border:none; border-top:1px solid var(--color-border); margin:1.4rem 0; }
+
+  /* Admin */
+  .admin-grid{ display:grid; grid-template-columns:1fr; gap:1.5rem; }
+  @media(min-width:840px){ .admin-grid{grid-template-columns:1fr 1.2fr;} }
+  .panel{ background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); }
+  .panel h2{ font-size:1.15rem; }
+  .field{ margin-bottom:1rem; }
+  .field label{ display:block; font-weight:600; margin-bottom:.35rem; color:var(--color-maroon-dark); font-size:.95rem; }
+  .field input[type="text"], .field textarea{
+    width:100%; padding:.65rem .8rem; border:1.5px solid var(--color-border); border-radius:10px;
+    font-size:1rem; font-family:inherit; background:#fff; color:var(--color-text);
+  }
+  .field textarea{ resize:vertical; min-height:5rem; }
+  .field input:focus-visible, .field textarea:focus-visible{ outline:2.5px solid var(--color-gold-soft); border-color:var(--color-gold); }
+  .field-hint{ font-size:.82rem; color:var(--color-text-soft); margin-top:.25rem; }
+  .checkbox-row{ display:flex; align-items:center; gap:.5rem; }
+  .checkbox-row input{ width:1.2rem; height:1.2rem; }
+
+  .admin-list-item{
+    border:1px solid var(--color-border); border-radius:12px; padding:.8rem .9rem; margin-bottom:.7rem;
+    display:flex; justify-content:space-between; align-items:flex-start; gap:.6rem; flex-wrap:wrap;
+  }
+  .admin-list-item .meta{ flex:1 1 160px; }
+  .admin-list-item .meta .t{ font-weight:700; color:var(--color-maroon-dark); }
+  .admin-list-item .meta .s{ font-size:.82rem; color:var(--color-text-soft); }
+  .status-pill{ font-size:.75rem; font-weight:700; padding:.15rem .55rem; border-radius:999px; }
+  .status-published{ background:#DCEFE5; color:var(--color-teal-dark); }
+  .status-draft{ background:#F3E3C4; color:#8A5B0C; }
+  .admin-actions{ display:flex; gap:.4rem; flex-wrap:wrap; }
+
+  /* Modal */
+  .modal-backdrop{
+    position:fixed; inset:0; background:rgba(43,27,18,0.55); z-index:100;
+    display:flex; align-items:center; justify-content:center; padding:1rem;
+  }
+  .modal-box{
+    background:var(--color-bg-card); border-radius:var(--radius); padding:1.6rem; width:100%; max-width:400px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.3);
+  }
+  .modal-box h2{ margin-bottom:.3rem; }
+  .modal-box p.sub{ color:var(--color-text-soft); font-size:.92rem; margin-top:0; }
+  .modal-actions{ display:flex; gap:.6rem; justify-content:flex-end; margin-top:1.1rem; }
+  .error-msg{ color:#A7333F; font-size:.88rem; margin-top:.4rem; font-weight:600; min-height:1.2em; }
+
+  footer.site-footer{
+    text-align:center; padding:2rem 1rem 3rem; color:var(--color-text-soft); font-size:.88rem;
+  }
+  footer.site-footer a{ color:var(--color-maroon); font-weight:600; }
+
+  .toast{
+    position:fixed; bottom:1.2rem; left:50%; transform:translateX(-50%);
+    background:var(--color-teal-dark); color:#fff; padding:.7rem 1.2rem; border-radius:999px;
+    font-size:.92rem; box-shadow:0 6px 18px rgba(0,0,0,0.25); z-index:200; opacity:0; pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(-6px); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; }
+  }
+
+  /* Subtle peacock-feather watermark — decorative only, sits behind all
+     content and never intercepts clicks or affects reading contrast. */
+  .peacock-decor{
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
+    opacity:.10;
+  }
+  .peacock-decor svg{ position:absolute; }
+  .peacock-decor .pf-tr{ top:-3vw; right:-4vw; width:min(40vw,420px); height:auto; }
+  .peacock-decor .pf-bl{ bottom:-4vw; left:-5vw; width:min(34vw,360px); height:auto; transform:rotate(160deg); }
+  @media (max-width:640px){
+    .peacock-decor{ opacity:.07; }
+  }
+</style>
+
+<!-- ===== Firebase (shared global database) =====
+     1) Create a free project at https://console.firebase.google.com
+     2) Add a "Web app" inside it, copy the config it gives you, and paste
+        it into firebaseConfig below.
+     3) Enable "Firestore Database" (start in production mode) and
+        "Authentication -> Email/Password".
+     4) In Authentication, add ONE user with email ADMIN_EMAIL (below) and
+        a password — that password is your admin passcode from now on.
+     5) In Firestore -> Rules, paste the rules from the setup guide.
+     Full step-by-step instructions were given alongside this file. -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCG2F-FIMnl8EOUxnUJacxwDAG7NCKDWQs",
+    authDomain: "thirupugazh-songs.firebaseapp.com",
+    projectId: "thirupugazh-songs",
+    storageBucket: "thirupugazh-songs.firebasestorage.app",
+    messagingSenderId: "749007254433",
+    appId: "1:749007254433:web:8a043516734e33181551e0"
+  };
+</script>
+</head>
+<body>
+
+<div class="peacock-decor" aria-hidden="true">
+  <svg class="pf-tr" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 190 C 60 150, 40 100, 55 55 C 65 25, 90 10, 100 10 C 110 10, 135 25, 145 55 C 160 100, 140 150, 100 190 Z" fill="none" stroke="var(--color-peacock-emerald)" stroke-width="2"/>
+    <path d="M100 170 C 72 138, 58 98, 68 62 C 76 38, 92 26, 100 26 C 108 26, 124 38, 132 62 C 142 98, 128 138, 100 170 Z" fill="none" stroke="var(--color-peacock-blue)" stroke-width="2"/>
+    <ellipse cx="100" cy="70" rx="26" ry="34" fill="none" stroke="var(--color-peacock-indigo)" stroke-width="2"/>
+    <ellipse cx="100" cy="70" rx="14" ry="20" fill="var(--color-gold)" opacity=".55"/>
+    <ellipse cx="100" cy="70" rx="6" ry="9" fill="var(--color-peacock-indigo)"/>
+    <line x1="100" y1="190" x2="100" y2="30" stroke="var(--color-gold)" stroke-width="1.5"/>
+  </svg>
+  <svg class="pf-bl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 190 C 60 150, 40 100, 55 55 C 65 25, 90 10, 100 10 C 110 10, 135 25, 145 55 C 160 100, 140 150, 100 190 Z" fill="none" stroke="var(--color-peacock-emerald)" stroke-width="2"/>
+    <path d="M100 170 C 72 138, 58 98, 68 62 C 76 38, 92 26, 100 26 C 108 26, 124 38, 132 62 C 142 98, 128 138, 100 170 Z" fill="none" stroke="var(--color-peacock-blue)" stroke-width="2"/>
+    <ellipse cx="100" cy="70" rx="26" ry="34" fill="none" stroke="var(--color-peacock-indigo)" stroke-width="2"/>
+    <ellipse cx="100" cy="70" rx="14" ry="20" fill="var(--color-gold)" opacity=".55"/>
+    <ellipse cx="100" cy="70" rx="6" ry="9" fill="var(--color-peacock-indigo)"/>
+    <line x1="100" y1="190" x2="100" y2="30" stroke="var(--color-gold)" stroke-width="1.5"/>
+  </svg>
+</div>
+
+
+<header class="site-header">
+  <div class="kolam-border" aria-hidden="true"></div>
+  <div class="header-inner">
+    <div class="brand" id="brandHome" role="button" tabindex="0" aria-label="Go to home page">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 L14 10 L12 22 L10 10 Z"/><circle cx="12" cy="7" r="1.4" fill="currentColor" stroke="none"/></svg>
+      </span>
+      <div class="brand-text">
+        <h1>திருப்புகழ் <span class="en-tag">(Thiruppugazh)</span></h1>
+        <p>திருப்புகழ் பாடல்கள் மற்றும் பொருள் <span class="en-tag">(Thiruppugazh Songs and Their Meanings)</span></p>
+      </div>
+    </div>
+    <div class="header-controls">
+      <div class="fontctl" role="group" aria-label="Adjust text size">
+        <button type="button" id="fontSmallBtn" title="Normal text size">A</button>
+        <button type="button" id="fontMedBtn" title="Large text size">A+</button>
+        <button type="button" id="fontLargeBtn" title="Extra large text size">A++</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- VIEW: PUBLIC SONG LIST -->
+  <section id="view-list">
+    <div class="intro-note">
+      🙏 <strong>வணக்கம், பக்தர்களே.</strong> முனிவர் அருணகிரிநாதர் அருளிய திருப்புகழ் பாடல்களை தமிழில் படியுங்கள், அவற்றின் பொருளையும் தெரிந்துகொள்ளுங்கள். கீழே உள்ள பாடல்களில் ஒன்றைத் தொட்டு முழுமையாகப் படிக்கலாம். மேலே உள்ள <strong>A / A+ / A++</strong> பொத்தான்களைப் பயன்படுத்தி எழுத்துருவின் அளவை பெரிதாக்கிக் கொள்ளலாம்.
+      <div class="en-tag" style="margin-top:.5rem;">(Greetings, devotees. Read the Thiruppugazh songs composed by Saint Arunagirinathar in Tamil, and learn their meaning. Tap any song below to read it in full. Use the A / A+ / A++ buttons above to make the text larger.)</div>
+    </div>
+    <div class="search-row">
+      <label for="searchInput" class="visually-hidden">Search songs by name or place</label>
+      <input type="search" id="searchInput" placeholder="பாடல் பெயர் அல்லது தலம் மூலம் தேடுங்கள்... (Search by song name or place...)">
+    </div>
+    <div id="songGrid" class="song-grid"><p style="grid-column:1/-1;text-align:center;color:var(--color-text-soft);">ஏற்றப்படுகிறது... (Loading...)</p></div>
+  </section>
+
+  <!-- VIEW: SONG DETAIL -->
+  <section id="view-detail" class="hidden">
+    <div class="detail-toolbar">
+      <button type="button" class="btn btn-ghost btn-sm" id="backToListBtn">&larr; எல்லா பாடல்களுக்கும் திரும்பு <span class="en-tag">(Back to all songs)</span></button>
+      <div style="display:flex; gap:.5rem;">
+        <button type="button" class="btn btn-teal btn-sm" id="listenBtn">🔊 கேளுங்கள் <span class="en-tag">(Listen)</span></button>
+        <button type="button" class="btn btn-ghost btn-sm" id="printBtn">🖨️ அச்சிடு <span class="en-tag">(Print)</span></button>
+      </div>
+    </div>
+    <article class="detail-card" id="detailCard"></article>
+  </section>
+
+  <!-- VIEW: ADMIN PANEL -->
+  <section id="view-admin" class="hidden">
+    <div class="detail-toolbar">
+      <h2 style="margin:0;">நிர்வாகர் பலகை <span class="en-tag">(Admin Panel)</span></h2>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        <button type="button" class="btn btn-teal btn-sm" id="openGuideBtn">📘 வழிகாட்டி <span class="en-tag">(Guide)</span></button>
+        <button type="button" class="btn btn-ghost btn-sm" id="exportBtn">⬇ காப்பு ஏற்றுமதி (JSON) <span class="en-tag">(Export backup)</span></button>
+        <label class="btn btn-ghost btn-sm" style="cursor:pointer;">⬆ காப்பு இறக்குமதி <span class="en-tag">(Import backup)</span>
+          <input type="file" id="importFile" accept="application/json" class="visually-hidden">
+        </label>
+        <button type="button" class="btn btn-danger btn-sm" id="logoutBtn">வெளியேறு <span class="en-tag">(Log out)</span></button>
+      </div>
+    </div>
+
+    <div class="admin-grid">
+      <div class="panel">
+        <h2 id="formTitle">புதிய பாடல் சேர் (Add New Song)</h2>
+        <form id="songForm">
+          <input type="hidden" id="songId">
+          <div class="field">
+            <label for="titleTamil">பாடல் தலைப்பு (தமிழ்) * <span class="en-tag">(Song title (Tamil) *)</span></label>
+            <input type="text" id="titleTamil" required>
+          </div>
+          <div class="field">
+            <label for="place">கோயில் / ஊர் (விருப்பம்) <span class="en-tag">(Temple / place (optional))</span></label>
+            <input type="text" id="place" placeholder="எ.கா. திருவண்ணாமலை (e.g. Tiruvannamalai)">
+          </div>
+          <div class="field">
+            <label for="lyrics">பாடல் வரிகள் (தமிழ்) * <span class="en-tag">(Song lyrics (Tamil) *)</span></label>
+            <textarea id="lyrics" rows="6" required></textarea>
+            <div class="field-hint">படிக்கும்போது காட்சியளிக்க வேண்டிய வகையில், புதிய வரிக்கு Enter அழுத்தவும். <span class="en-tag">(Press Enter for a new line, the way it should appear while reading.)</span></div>
+          </div>
+          <div class="field">
+            <label for="meaning">பொருள் / விளக்கம் * <span class="en-tag">(Meaning / explanation *)</span></label>
+            <textarea id="meaning" rows="6" required></textarea>
+          </div>
+          <div class="field checkbox-row">
+            <input type="checkbox" id="published">
+            <label for="published" style="margin:0;">இப்பாடலை வெளியிடவும் (பார்வையாளர்களுக்குக் காட்டும்) <span class="en-tag">(Publish this song (visitors will be able to see it))</span></label>
+          </div>
+          <div class="error-msg" id="formError"></div>
+          <div style="display:flex; gap:.6rem; margin-top:.6rem; flex-wrap:wrap;">
+            <button type="submit" class="btn btn-primary" id="saveBtn">பாடலைச் சேமி (Save song)</button>
+            <button type="button" class="btn btn-ghost" id="clearFormBtn">படிவத்தை அழி <span class="en-tag">(Clear form)</span></button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>All songs (<span id="adminCount">0</span>)</h2>
+        <div id="adminList"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- LOGIN MODAL -->
+<div class="modal-backdrop hidden" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+  <div class="modal-box">
+    <h2 id="loginTitle">நிர்வாகி உள்நுழைவு <span class="en-tag">(Admin Login)</span></h2>
+    <p class="sub">பாடல்களைச் சேர்க்க, திருத்த அல்லது வெளியிட நிர்வாகி கடவுக்குறியீட்டை உள்ளிடவும். <span class="en-tag">(Enter the admin passcode to add, edit, or publish songs.)</span></p>
+    <form id="loginForm">
+      <div class="field" style="margin-bottom:.3rem;">
+        <label for="passcodeInput" class="visually-hidden">கடவுக்குறியீடு (Passcode)</label>
+        <input type="password" id="passcodeInput" placeholder="கடவுக்குறியீட்டை உள்ளிடவும் (Enter passcode)" autocomplete="off">
+      </div>
+      <div class="error-msg" id="loginError"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="cancelLoginBtn">ரத்துசெய் (Cancel)</button>
+        <button type="submit" class="btn btn-primary">உள்நுழை (Log in)</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- CONFIRM DELETE MODAL -->
+<div class="modal-backdrop hidden" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+  <div class="modal-box">
+    <h2 id="confirmTitle">இந்தப் பாடலை நீக்கவா? <span class="en-tag">(Delete this song?)</span></h2>
+    <p class="sub" id="confirmText">இதைச் செயல்தவிர்க்க முடியாது. (This cannot be undone.)</p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" id="confirmCancelBtn">ரத்துசெய் (Cancel)</button>
+      <button type="button" class="btn btn-danger" id="confirmDeleteBtn">நீக்கு (Delete)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN GUIDE MODAL -->
+<div class="modal-backdrop hidden" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+  <div class="modal-box" style="max-width:480px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:.6rem;">
+      <span class="status-pill status-published" id="guideStepPill">படி 1 / 8 (Step 1 / 8)</span>
+      <button type="button" class="btn btn-ghost btn-sm" id="guideCloseBtn" aria-label="வழிகாட்டியை மூடு (Close guide)">✕</button>
+    </div>
+    <h2 id="guideTitle" style="margin-top:.8rem;"></h2>
+    <p class="sub" id="guideDesc" style="line-height:1.55;"></p>
+    <div class="modal-actions" style="justify-content:space-between;">
+      <button type="button" class="btn btn-ghost btn-sm" id="guideStartOverBtn">மீண்டும் தொடங்கு (Start over)</button>
+      <div style="display:flex; gap:.5rem;">
+        <button type="button" class="btn btn-ghost" id="guideBackBtn">&larr; பின் (Back)</button>
+        <button type="button" class="btn btn-primary" id="guideNextBtn">அடுத்து &rarr; (Next)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer class="site-footer">
+  <div class="kolam-border" aria-hidden="true" style="margin-bottom:1.2rem;"></div>
+  <p style="text-align:center;">ஓம் முருகா 🙏 <span class="en-tag">(Om Muruga)</span></p>
+  <p style="text-align:center;">
+    &copy; Sivakumar | Do not attempt to use, copy, or recreate this content, workflow, design, or idea in any way &mdash; strictly prohibited. | This is sacred to the devotees, please respect it 🙏
+    <span
+      id="adminNavBtn"
+      role="button"
+      tabindex="0"
+      aria-label="Admin"
+      style="cursor:default; opacity:.45; font-size:.78em; margin-left:.5em; user-select:none;"
+      onmouseover="this.style.opacity='.7'"
+      onmouseout="this.style.opacity='.45'"
+    >&middot; Admin</span>
+  </p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Firebase ---------- */
+  // This is the one technical detail hidden behind the simple "passcode"
+  // box: Firebase Auth needs an email+password pair, so we pair a fixed
+  // admin email with whatever passcode you set as that user's password in
+  // the Firebase console. Visitors never see this email.
+  var ADMIN_EMAIL = "siva80mail@gmail.com";
+  firebase.initializeApp(firebaseConfig);
+  var auth = firebase.auth();
+  var db = firebase.firestore();
+  var songsRef = db.collection("songs");
+
+  var FONT_KEY = "thirupugazh_fontscale_v1"; // purely local display preference, fine to keep per-device
+
+  /* ---------- Utilities ---------- */
+  function $(id){ return document.getElementById(id); }
+  function escapeHtml(str){
+    if(str === undefined || str === null) return "";
+    return String(str)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+  }
+  function nl2br(str){ return escapeHtml(str).replace(/\n/g,"<br>"); }
+  function showToast(msg){
+    var t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(showToast._timer);
+    showToast._timer = setTimeout(function(){ t.classList.remove("show"); }, 2600);
+  }
+
+  /* ---------- Data layer (Firestore = shared global database) ---------- */
+  // `songs` is a local, always-fresh mirror of Firestore. Every visitor's
+  // browser gets pushed live updates via onSnapshot, so a song published
+  // by the admin appears for everyone with the link, automatically.
+  var songs = [];
+  var unsubscribe = null;
+  function startListening(){
+    if(unsubscribe){ unsubscribe(); unsubscribe = null; }
+    // Signed-out visitors are only allowed to read published songs (see the
+    // security rules in the setup guide); the admin, once signed in, reads
+    // everything so drafts show up in the admin panel too.
+    var query = isAuthed() ? songsRef : songsRef.where("published","==",true);
+    unsubscribe = query.onSnapshot(function(snap){
+      songs = snap.docs.map(function(d){ return Object.assign({id:d.id}, d.data()); });
+      renderSongList();
+      if(isAuthed()) renderAdminList();
+    }, function(err){
+      console.error("Firestore read failed:", err);
+      showToast("⚠️ பாடல்களை ஏற்ற முடியவில்லை (Could not load songs): " + err.message);
+    });
+  }
+
+  /* ---------- Font size (local display preference only) ---------- */
+  function applyFontScale(scale){
+    document.documentElement.style.setProperty("--font-scale", scale);
+    localStorage.setItem(FONT_KEY, scale);
+    [["fontSmallBtn","1"],["fontMedBtn","1.15"],["fontLargeBtn","1.35"]].forEach(function(pair){
+      $(pair[0]).classList.toggle("active", String(scale) === pair[1]);
+    });
+  }
+  (function initFont(){
+    var saved = localStorage.getItem(FONT_KEY) || "1";
+    applyFontScale(saved);
+  })();
+  $("fontSmallBtn").addEventListener("click", function(){ applyFontScale("1"); });
+  $("fontMedBtn").addEventListener("click", function(){ applyFontScale("1.15"); });
+  $("fontLargeBtn").addEventListener("click", function(){ applyFontScale("1.35"); });
+
+  /* ---------- View switching ---------- */
+  function showView(name){
+    ["view-list","view-detail","view-admin"].forEach(function(id){
+      $(id).classList.toggle("hidden", id !== ("view-" + name));
+    });
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+  $("brandHome").addEventListener("click", function(){ showView("list"); });
+  $("brandHome").addEventListener("keydown", function(e){
+    if(e.key === "Enter" || e.key === " "){ e.preventDefault(); showView("list"); }
+  });
+
+  /* ---------- Public song list ---------- */
+  var currentSearch = "";
+  function renderSongList(){
+    var grid = $("songGrid");
+    var q = currentSearch.trim().toLowerCase();
+    var visible = songs.filter(function(s){
+      if(!s.published) return false;
+      if(!q) return true;
+      return (s.titleTamil||"").toLowerCase().indexOf(q) > -1 ||
+             (s.titleEn||"").toLowerCase().indexOf(q) > -1 ||
+             (s.place||"").toLowerCase().indexOf(q) > -1;
+    });
+    visible.sort(function(a,b){
+      var ta = (a.titleTamil||"").trim(), tb = (b.titleTamil||"").trim();
+      var cmp = ta.localeCompare(tb, "ta");
+      if(cmp !== 0) return cmp;
+      return (a.titleEn||"").localeCompare(b.titleEn||"", "en");
+    });
+    if(visible.length === 0){
+      grid.innerHTML =
+        '<div class="empty-state" style="grid-column:1/-1;">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8 15c1.2 1 2.6 1.5 4 1.5s2.8-.5 4-1.5"/></svg>' +
+          '<p>' + (songs.some(function(s){return s.published;}) ? "உங்கள் தேடலுக்குப் பொருந்தும் பாடல்கள் இல்லை. (No songs match your search.)" : "இதுவரை பாடல்கள் வெளியிடப்படவில்லை. விரைவில் பார்வையிடவும் 🙏 (No songs have been published yet. Please check back soon.)") + '</p>' +
+        '</div>';
+      return;
+    }
+    grid.innerHTML = visible.map(function(s){
+      var excerpt = (s.meaning || "").slice(0,110);
+      return '<button type="button" class="song-card" data-id="' + escapeHtml(s.id) + '">' +
+        '<span class="tamil-title">' + escapeHtml(s.titleTamil) + '</span>' +
+        (s.titleEn ? '<span class="en-title">' + escapeHtml(s.titleEn) + '</span>' : '') +
+        (s.place ? '<span class="place">📍 ' + escapeHtml(s.place) + '</span>' : '') +
+        '<span class="excerpt">' + escapeHtml(excerpt) + (s.meaning && s.meaning.length > 110 ? "…" : "") + '</span>' +
+      '</button>';
+    }).join("");
+    Array.prototype.forEach.call(grid.querySelectorAll(".song-card"), function(card){
+      card.addEventListener("click", function(){ openDetail(card.getAttribute("data-id")); });
+    });
+  }
+  $("searchInput").addEventListener("input", function(e){
+    currentSearch = e.target.value;
+    renderSongList();
+  });
+
+  /* ---------- Song detail ---------- */
+  var activeSongId = null;
+  function openDetail(id){
+    var song = songs.find(function(s){ return s.id === id; });
+    if(!song) return;
+    activeSongId = id;
+    var card = $("detailCard");
+    card.innerHTML =
+      '<div class="detail-header">' +
+        '<h2 class="tamil-title">' + escapeHtml(song.titleTamil) + '</h2>' +
+        (song.titleEn ? '<div class="en-title">' + escapeHtml(song.titleEn) + '</div>' : '') +
+        (song.place ? '<span class="place">📍 ' + escapeHtml(song.place) + '</span>' : '') +
+      '</div>' +
+      '<div class="section-label">பாடல் (தமிழ்) <span class="en-tag">(Song (Tamil))</span></div>' +
+      '<div class="lyrics-block">' + nl2br(song.lyrics) + '</div>' +
+      (song.translit ? '<hr class="divider"><div class="section-label">ஒலிபெயர்ப்பு <span class="en-tag">(Transliteration)</span></div><div class="translit-block">' + nl2br(song.translit) + '</div>' : '') +
+      '<hr class="divider">' +
+      '<div class="section-label">பொருள் <span class="en-tag">(Meaning)</span></div>' +
+      '<div class="meaning-block">' + nl2br(song.meaning) + '</div>';
+    showView("detail");
+  }
+  $("backToListBtn").addEventListener("click", function(){ showView("list"); });
+  $("printBtn").addEventListener("click", function(){ window.print(); });
+  $("listenBtn").addEventListener("click", function(){
+    if(!activeSongId) return;
+    var song = songs.find(function(s){ return s.id === activeSongId; });
+    if(!song) return;
+    if(!("speechSynthesis" in window)){
+      showToast("மன்னிக்கவும், இந்த உலாவி எழுத்தை உரக்கப் படிக்க முடியாது. (Sorry, this browser cannot read text aloud.)");
+      return;
+    }
+    window.speechSynthesis.cancel();
+    var utter = new SpeechSynthesisUtterance(song.lyrics);
+    utter.lang = "ta-IN";
+    utter.rate = 0.85;
+    window.speechSynthesis.speak(utter);
+  });
+
+  /* ---------- Admin auth (Firebase Auth — real accounts, not a hash in the page source) ---------- */
+  function isAuthed(){ return !!auth.currentUser; }
+
+  function activateAdminNav(){
+    if(isAuthed()){ showView("admin"); }
+    else { openLoginModal(); }
+  }
+  $("adminNavBtn").addEventListener("click", activateAdminNav);
+  $("adminNavBtn").addEventListener("keydown", function(e){
+    if(e.key === "Enter" || e.key === " "){ e.preventDefault(); activateAdminNav(); }
+  });
+
+  function openLoginModal(){
+    $("loginError").textContent = "";
+    $("passcodeInput").value = "";
+    $("loginModal").classList.remove("hidden");
+    setTimeout(function(){ $("passcodeInput").focus(); }, 50);
+  }
+  function closeLoginModal(){ $("loginModal").classList.add("hidden"); }
+  $("cancelLoginBtn").addEventListener("click", closeLoginModal);
+  $("loginModal").addEventListener("click", function(e){ if(e.target === $("loginModal")) closeLoginModal(); });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){
+      if(!$("loginModal").classList.contains("hidden")) closeLoginModal();
+      if(!$("confirmModal").classList.contains("hidden")) closeConfirmModal();
+      if(!$("guideModal").classList.contains("hidden")) closeGuideModal();
+    }
+  });
+
+  $("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var entered = $("passcodeInput").value;
+    if(!entered){
+      $("loginError").textContent = "தயவுசெய்து கடவுக்குறியீட்டை உள்ளிடவும். (Please enter the passcode.)";
+      return;
+    }
+    auth.signInWithEmailAndPassword(ADMIN_EMAIL, entered).then(function(){
+      closeLoginModal();
+      showView("admin");
+      showToast("மீண்டும் வருக 🙏 நீங்கள் நிர்வாகியாக உள்நுழைந்துள்ளீர்கள். (Welcome back — you are logged in as admin.)");
+    }).catch(function(err){
+      // Firebase itself rate-limits repeated failed attempts, so no separate lockout logic is needed here.
+      $("loginError").textContent = "தவறான கடவுக்குறியீடு. மீண்டும் முயற்சிக்கவும். (Incorrect passcode. Please try again.)";
+      $("passcodeInput").value = "";
+      $("passcodeInput").focus();
+    });
+  });
+
+  $("logoutBtn").addEventListener("click", function(){
+    auth.signOut().then(function(){
+      showView("list");
+      showToast("நீங்கள் வெளியேறிவிட்டீர்கள். (You have logged out.)");
+    });
+  });
+
+  // Whenever sign-in state changes (page load, login, logout) re-subscribe
+  // with the right query for that state.
+  auth.onAuthStateChanged(function(){
+    startListening();
+  });
+
+  /* ---------- Admin: CRUD (writes go straight to Firestore) ---------- */
+  var editingId = null;
+
+  function renderAdminList(){
+    var list = $("adminList");
+    $("adminCount").textContent = songs.length;
+    if(songs.length === 0){
+      list.innerHTML = '<div class="empty-state"><p>இதுவரை பாடல்கள் சேர்க்கப்படவில்லை. உங்கள் முதல் பாடலைச் சேர்க்க படிவத்தைப் பயன்படுத்தவும். <span class="en-tag">(No songs added yet. Use the form to add your first song.)</span></p></div>';
+      return;
+    }
+    var sorted = songs.slice().sort(function(a,b){ return (b.updatedAt||"").localeCompare(a.updatedAt||""); });
+    list.innerHTML = sorted.map(function(s){
+      var subtitle = [s.titleEn, s.place].filter(Boolean).join(" · ");
+      return '<div class="admin-list-item" data-id="' + escapeHtml(s.id) + '">' +
+        '<div class="meta">' +
+          '<div class="t">' + escapeHtml(s.titleTamil) + ' <span class="status-pill ' + (s.published ? "status-published" : "status-draft") + '">' + (s.published ? "வெளியிடப்பட்டது (Published)" : "வரைவு (Draft)") + '</span></div>' +
+          (subtitle ? '<div class="s">' + escapeHtml(subtitle) + '</div>' : '') +
+        '</div>' +
+        '<div class="admin-actions">' +
+          '<button type="button" class="btn btn-ghost btn-sm act-edit">திருத்து (Edit)</button>' +
+          '<button type="button" class="btn btn-gold btn-sm act-toggle">' + (s.published ? "வெளியிடாதே (Unpublish)" : "வெளியிடு (Publish)") + '</button>' +
+          '<button type="button" class="btn btn-danger btn-sm act-delete">நீக்கு (Delete)</button>' +
+        '</div>' +
+      '</div>';
+    }).join("");
+
+    Array.prototype.forEach.call(list.querySelectorAll(".admin-list-item"), function(row){
+      var id = row.getAttribute("data-id");
+      row.querySelector(".act-edit").addEventListener("click", function(){ loadIntoForm(id); });
+      row.querySelector(".act-toggle").addEventListener("click", function(){ togglePublish(id); });
+      row.querySelector(".act-delete").addEventListener("click", function(){ openConfirmDelete(id); });
+    });
+  }
+
+  function clearForm(){
+    editingId = null;
+    $("songForm").reset();
+    $("songId").value = "";
+    $("formTitle").textContent = "புதிய பாடல் சேர் (Add New Song)";
+    $("formError").textContent = "";
+    $("saveBtn").textContent = "பாடலைச் சேமி (Save song)";
+  }
+  $("clearFormBtn").addEventListener("click", clearForm);
+
+  function loadIntoForm(id){
+    var song = songs.find(function(s){ return s.id === id; });
+    if(!song) return;
+    editingId = id;
+    $("songId").value = song.id;
+    $("titleTamil").value = song.titleTamil || "";
+    $("place").value = song.place || "";
+    $("lyrics").value = song.lyrics || "";
+    $("meaning").value = song.meaning || "";
+    $("published").checked = !!song.published;
+    $("formTitle").textContent = "பாடலைத் திருத்து (Edit Song)";
+    $("saveBtn").textContent = "பாடலைப் புதுப்பி (Update song)";
+    $("formError").textContent = "";
+    showView("admin");
+    $("titleTamil").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  $("songForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var titleTamil = $("titleTamil").value.trim();
+    var lyrics = $("lyrics").value.trim();
+    var meaning = $("meaning").value.trim();
+    if(!titleTamil || !lyrics || !meaning){
+      $("formError").textContent = "* குறியிடப்பட்ட கட்டாயப் புலங்களை நிரப்பவும். (Please fill in the fields marked *.)";
+      return;
+    }
+    var now = new Date().toISOString();
+    var saveBtn = $("saveBtn");
+    saveBtn.disabled = true;
+    var task;
+    if(editingId){
+      task = songsRef.doc(editingId).set({
+        titleTamil: titleTamil,
+        place: $("place").value.trim(),
+        lyrics: lyrics,
+        meaning: meaning,
+        published: $("published").checked,
+        updatedAt: now
+      }, {merge:true}).then(function(){
+        showToast("பாடல் புதுப்பிக்கப்பட்டது. (Song updated.)");
+      });
+    } else {
+      task = songsRef.add({
+        titleTamil: titleTamil, titleEn: "",
+        place: $("place").value.trim(), lyrics: lyrics,
+        translit: "", meaning: meaning,
+        published: $("published").checked,
+        createdAt: now, updatedAt: now
+      }).then(function(){
+        showToast("பாடல் சேர்க்கப்பட்டது. (Song added.)");
+      });
+    }
+    task.then(function(){
+      clearForm();
+    }).catch(function(err){
+      $("formError").textContent = "⚠️ சேமிக்க முடியவில்லை (Could not save): " + err.message;
+    }).finally(function(){
+      saveBtn.disabled = false;
+    });
+  });
+
+  function togglePublish(id){
+    var song = songs.find(function(s){ return s.id === id; });
+    if(!song) return;
+    var nextState = !song.published;
+    songsRef.doc(id).update({published: nextState, updatedAt: new Date().toISOString()}).then(function(){
+      showToast(nextState ? "பாடல் வெளியிடப்பட்டது — பார்வையாளர்கள் இப்போது காணலாம். (Song published — visitors can now see it.)" : "பாடல் வெளியீடு நீக்கப்பட்டது. (Song unpublished.)");
+    }).catch(function(err){
+      showToast("⚠️ புதுப்பிக்க முடியவில்லை (Could not update): " + err.message);
+    });
+  }
+
+  var pendingDeleteId = null;
+  function openConfirmDelete(id){
+    var song = songs.find(function(s){ return s.id === id; });
+    if(!song) return;
+    pendingDeleteId = id;
+    $("confirmText").textContent = '"' + (song.titleTamil || song.titleEn) + '" ஐ நீக்கவா? இதைச் செயல்தவிர்க்க முடியாது. (Delete "' + (song.titleTamil || song.titleEn) + '"? This cannot be undone.)';
+    $("confirmModal").classList.remove("hidden");
+  }
+  function closeConfirmModal(){
+    pendingDeleteId = null;
+    $("confirmModal").classList.add("hidden");
+  }
+  $("confirmCancelBtn").addEventListener("click", closeConfirmModal);
+  $("confirmModal").addEventListener("click", function(e){ if(e.target === $("confirmModal")) closeConfirmModal(); });
+  $("confirmDeleteBtn").addEventListener("click", function(){
+    if(!pendingDeleteId) return;
+    var idToDelete = pendingDeleteId;
+    songsRef.doc(idToDelete).delete().then(function(){
+      if(editingId === idToDelete) clearForm();
+      showToast("பாடல் நீக்கப்பட்டது. (Song deleted.)");
+    }).catch(function(err){
+      showToast("⚠️ நீக்க முடியவில்லை (Could not delete): " + err.message);
+    });
+    closeConfirmModal();
+  });
+
+  /* ---------- Admin guide (step-by-step, admin-only) ---------- */
+  var GUIDE_STEPS = [
+    {
+      title: "1. Firebase-ஐ ஒருமுறை அமைக்கவும் (Set up Firebase — one time only)",
+      desc: "இலவச Firebase திட்டத்தை உருவாக்கி, Firestore மற்றும் Email/Password Authentication-ஐ இயக்கவும். இந்தக் கோப்பின் மேலே உள்ள firebaseConfig-இல் உங்கள் விவரங்களை ஒட்டவும். (Create a free Firebase project, enable Firestore and Email/Password Authentication, and paste your project's config into firebaseConfig near the top of this file. Full instructions were provided in the setup guide alongside this file.)"
+    },
+    {
+      title: "2. GitHub Pages-இல் பதிவேற்றவும் (Publish this file on GitHub Pages)",
+      desc: "இந்தக் கோப்பை உங்கள் GitHub repository-இல் பதிவேற்றி Pages-ஐ இயக்கவும். இப்போது கிடைக்கும் இணைப்பே (URL) உலகம் முழுவதும் பகிரக்கூடிய, நிரந்தர இணைப்பு. (Push this file to a GitHub repository and turn on GitHub Pages. The link you get is now your permanent, worldwide-shareable link — the same link works for you and every visitor.)"
+    },
+    {
+      title: "3. நிர்வாகியாக உள்நுழையவும் (Log in as admin)",
+      desc: "அடிக்குறிப்பில் உள்ள “· நிர்வாகி” குறிப்பைத் தட்டி, படி 1-இல் Firebase-இல் அமைத்த கடவுக்குறியீட்டை உள்ளிடவும். (Tap the small \u201c\u00b7 Admin\u201d mention in the footer and enter the password you set for the admin user in Firebase in step 1.)"
+    },
+    {
+      title: "4. பாடல்களைச் சேர்த்து வெளியிடவும் (Add and publish songs)",
+      desc: "படிவத்தில் பாடலைச் சேர்த்து, “இப்பாடலை வெளியிடவும்” எனத் தேர்ந்தெடுக்கவும். சேமித்தவுடன், அந்தப் பாடல் இணைப்பைத் திறக்கும் அனைவருக்கும் உடனடியாகத் தெரியும் — எந்த ஏற்றுமதியும் தேவையில்லை. (Add a song using the form and check \u201cPublish this song.\u201d The moment you save, it's visible to anyone who opens the link \u2014 no exporting or re-sharing a file needed. Leave it unchecked to keep it a private draft.)"
+    },
+    {
+      title: "5. இணைப்பை மட்டும் பகிரவும் (Just share the link)",
+      desc: "இந்தத் தளத்தின் GitHub Pages இணைப்பை ஒருமுறை பகிர்ந்தால் போதும். நீங்கள் பின்னர் சேர்க்கும் அல்லது திருத்தும் ஒவ்வொரு பாடலும், அதே இணைப்பில் தானாகவே தெரியும். (Share the GitHub Pages link once. Every song you add or edit afterwards shows up automatically at that same link — for everyone, everywhere.)"
+    },
+    {
+      title: "6. காப்பு எடுக்கவும் (Optional — take a backup)",
+      desc: "“காப்பு ஏற்றுமதி (JSON)” பொத்தானைப் பயன்படுத்தி உங்கள் பாடல்களின் நகலைப் பாதுகாப்பாக வைத்திருக்கலாம். Firestore-ஐ முக்கிய தரவுத்தளமாகக் கருதுங்கள்; இந்த JSON வெறும் கூடுதல் பாதுகாப்பு நகல் மட்டுமே. (Use \u201cExport backup (JSON)\u201d any time to keep a safety copy of your songs. Firestore is the real database now; this JSON file is just an extra safety net.)"
+    }
+  ];
+  var guideStepIndex = 0;
+  function renderGuideStep(){
+    var step = GUIDE_STEPS[guideStepIndex];
+    $("guideStepPill").textContent = "படி " + (guideStepIndex + 1) + " / " + GUIDE_STEPS.length + " (Step " + (guideStepIndex + 1) + " / " + GUIDE_STEPS.length + ")";
+    $("guideTitle").textContent = step.title;
+    $("guideDesc").textContent = step.desc;
+    $("guideBackBtn").disabled = guideStepIndex === 0;
+    $("guideNextBtn").textContent = (guideStepIndex === GUIDE_STEPS.length - 1) ? "முடிந்தது (Done)" : "அடுத்து \u2192 (Next)";
+  }
+  function openGuideModal(){
+    guideStepIndex = 0;
+    renderGuideStep();
+    $("guideModal").classList.remove("hidden");
+  }
+  function closeGuideModal(){
+    $("guideModal").classList.add("hidden");
+  }
+  $("openGuideBtn").addEventListener("click", openGuideModal);
+  $("guideCloseBtn").addEventListener("click", closeGuideModal);
+  $("guideModal").addEventListener("click", function(e){ if(e.target === $("guideModal")) closeGuideModal(); });
+  $("guideBackBtn").addEventListener("click", function(){
+    if(guideStepIndex > 0){ guideStepIndex--; renderGuideStep(); }
+  });
+  $("guideNextBtn").addEventListener("click", function(){
+    if(guideStepIndex < GUIDE_STEPS.length - 1){ guideStepIndex++; renderGuideStep(); }
+    else { closeGuideModal(); }
+  });
+  $("guideStartOverBtn").addEventListener("click", function(){
+    guideStepIndex = 0;
+    renderGuideStep();
+  });
+
+  /* ---------- Export / Import (JSON backup, now against Firestore) ---------- */
+  $("exportBtn").addEventListener("click", function(){
+    var blob = new Blob([JSON.stringify(songs, null, 2)], {type:"application/json"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "thirupugazh-songs-backup-" + new Date().toISOString().slice(0,10) + ".json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast("காப்பு பதிவிறக்கம் செய்யப்பட்டது. (Backup downloaded.)");
+  });
+
+  var COMPARE_FIELDS = ["titleTamil","titleEn","place","lyrics","translit","meaning","published"];
+  function normalizeField(v){ return (v === undefined || v === null) ? "" : String(v).trim(); }
+  function normalizeForCompare(v){
+    var s = normalizeField(v);
+    if(s.normalize) s = s.normalize("NFC");
+    return s.replace(/\s+/g, " ").toLowerCase();
+  }
+  function sameContent(a, b){
+    return COMPARE_FIELDS.every(function(f){
+      if(f === "published") return !!a[f] === !!b[f];
+      return normalizeForCompare(a[f]) === normalizeForCompare(b[f]);
+    });
+  }
+  function contentKey(s){
+    return [normalizeForCompare(s.titleTamil), normalizeForCompare(s.titleEn), normalizeForCompare(s.lyrics)].join("||");
+  }
+
+  $("importFile").addEventListener("change", function(e){
+    var file = e.target.files[0];
+    if(!file) return;
+    var reader = new FileReader();
+    reader.onload = function(){
+      try{
+        var data = JSON.parse(reader.result);
+        if(!Array.isArray(data)) throw new Error("கோப்பில் பாடல்கள் பட்டியல் இல்லை. (The file does not contain a list of songs.)");
+        var valid = data.every(function(s){ return s && typeof s === "object" && "titleTamil" in s && "titleEn" in s; });
+        if(!valid) throw new Error("கோப்பு வடிவம் அடையாளம் காணப்படவில்லை. (The file format was not recognized.)");
+
+        var byId = {};
+        var byContent = {};
+        songs.forEach(function(s){
+          byId[s.id] = s;
+          byContent[contentKey(s)] = s;
+        });
+
+        var now = new Date().toISOString();
+        var batch = db.batch();
+        var added = 0, updated = 0, skipped = 0;
+
+        data.forEach(function(incoming){
+          var existing = (incoming.id && byId[incoming.id]) || byContent[contentKey(incoming)];
+          if(existing){
+            if(sameContent(existing, incoming)){
+              skipped++;
+              return;
+            }
+            var patch = {updatedAt: now};
+            COMPARE_FIELDS.forEach(function(f){
+              patch[f] = f === "published" ? !!incoming[f] : normalizeField(incoming[f]);
+            });
+            batch.set(songsRef.doc(existing.id), patch, {merge:true});
+            updated++;
+          } else {
+            var freshRef = songsRef.doc();
+            batch.set(freshRef, {
+              titleTamil: normalizeField(incoming.titleTamil),
+              titleEn: normalizeField(incoming.titleEn),
+              place: normalizeField(incoming.place),
+              lyrics: normalizeField(incoming.lyrics),
+              translit: normalizeField(incoming.translit),
+              meaning: normalizeField(incoming.meaning),
+              published: !!incoming.published,
+              createdAt: incoming.createdAt || now,
+              updatedAt: now
+            });
+            added++;
+          }
+        });
+
+        batch.commit().then(function(){
+          var parts = [];
+          if(added) parts.push(added + " புதிய பாடல்(கள்) சேர்க்கப்பட்டன (new song(s) added)");
+          if(updated) parts.push(updated + " ஏற்கனவே உள்ள பாடல்(கள்) புதுப்பிக்கப்பட்டன (existing song(s) updated)");
+          if(skipped) parts.push(skipped + " ஏற்கனவே புதுப்பித்த நிலையில் உள்ளன (தவிர்க்கப்பட்டது) (already up to date, skipped)");
+          showToast("இறக்குமதி முடிந்தது (Import complete): " + (parts.length ? parts.join(", ") : "மாற்றங்கள் இல்லை (no changes)") + ".");
+        }).catch(function(err){
+          showToast("⚠️ இறக்குமதியைச் சேமிக்க முடியவில்லை (Could not save the import): " + err.message);
+        });
+      }catch(err){
+        showToast("⚠️ இந்தக் கோப்பை இறக்குமதி செய்ய முடியவில்லை (Could not import this file): " + err.message);
+      }
+      $("importFile").value = "";
+    };
+    reader.readAsText(file);
+  });
+})();
+</script>
+</body>
+</html>
